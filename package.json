@@ -1,0 +1,51 @@
+{
+  "name": "opencode-purge",
+  "version": "1.0.0",
+  "description": "OpenCode V2 plugin: swap the harness system prompt for your own persona, per session, plus an optional sandbox profile capping tool permissions. Port of pi-purge's mechanism to OpenCode's supported plugin hook.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "prompt-inject.md"
+  ],
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "system-prompt",
+    "prompt-engineering",
+    "persona",
+    "sandbox",
+    "permissions",
+    "pi-purge"
+  ],
+  "scripts": {
+    "test": "bun test",
+    "test:host": "node scripts/host-test.mjs",
+    "pack": "bun scripts/pack.ts",
+    "pack:watch": "bun scripts/pack.ts --watch",
+    "smoke": "bun scripts/pack.ts test/fixtures/catalog .tmp-smoke/pack.json && bun scripts/diag-resolve.ts test/fixtures/catalog alpha/a-v1",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && bun test"
+  },
+  "dependencies": {
+    "@opencode/plugin": "^2.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LongpanZhou/opencode-purge.git"
+  },
+  "homepage": "https://github.com/LongpanZhou/opencode-purge#readme",
+  "bugs": {
+    "url": "https://github.com/LongpanZhou/opencode-purge/issues"
+  },
+  "engines": {
+    "bun": ">=1.2"
+  }
+}
